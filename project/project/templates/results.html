@@ -1,0 +1,9 @@
+{% if results %}
+    <ul>
+    {% for question in results %}
+        <li>{{ question.question_text }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No Results</p>
+{% endif %}
