@@ -6,7 +6,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django import template
 from django.template.loader import get_template 
-from database.models import Question
+from database.models import Z_Restaurant
 
 def search(request):
     template = get_template('search.html')
@@ -18,13 +18,10 @@ def search(request):
 
 def results(request):
 	query = request.GET['q']
-	template = get_template('results.html')
+	template = get_template('restaurant_results1.html')
 
-	try:
-		results=Question.objects.filter(question_text= query)
-		context = { 'results': results}
-	except Question.DoesNotExist:
-		results="wrong"
-		context = { 'results': results}	
+	results=None
+	context = { 'results': results}
+
 
 	return HttpResponse(template.render(context,request))

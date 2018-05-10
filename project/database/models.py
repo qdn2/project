@@ -3,8 +3,17 @@ from __future__ import unicode_literals
 
 from django.db import models
 
-class Question(models.Model):
-    question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
-    def __str__(self):
-		return self.question_text
+
+
+class Z_Restaurant(models.Model):
+   r_id = models.CharField(max_length=200, null= True)
+   r_name= models.CharField(max_length= 200, null= True)
+   food_type= models.CharField(max_length = 200, null= True)
+   r_city=models.CharField(max_length = 200, null= True)
+   r_address=models.CharField(max_length = 200, null= True)
+   r_menu=models.CharField(max_length = 200, null= True)
+   r_cost=models.CharField(max_length = 200, null= True)
+   r_image=models.CharField(max_length = 200, null= True)
+   r_rating=models.CharField(max_length = 200, null= True)
+
+

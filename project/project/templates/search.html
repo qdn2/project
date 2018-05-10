@@ -1,6 +1,68 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+    background-image: url('https://www.pirenko.com/fount-restaurant/wp-content/uploads/sites/19/2014/12/food-dark.jpg');
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+#searchbox
+{
+    height:50px;
+    width:600px;
+    font-size:14pt;
+}
+</style>
+<body>
+
+<div class="w3-top">
+  <div class="w3-row w3-padding w3-black">
+    <div class="w3-col s3">
+      <a href="#" class="w3-button w3-block w3-black">HOME</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#about" class="w3-button w3-block w3-black">ABOUT</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#recipesearch" class="w3-button w3-block w3-black">RECIPE SEARCH</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#restaurantsearch" class="w3-button w3-block w3-black">RESTAURANT SEARCH</a>
+    </div>
+  </div>
+</div>
+
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+  <div class="w3-display-middle">
+  	<div>
+    	<center>
+        	<h1 class="w3-jumbo"><b><font color="white">Restaurant Search</font></b></h1>
+        </center>
+    </div>
+    <div>
+    </div>
     <form id="searchform" action="{% url 'results' %}" method="get" accept-charset="utf-8">
-      <button class="searchbutton" type="submit">Search
-        <i class="fa fa-search"></i>
-      </button>
-      <input class="searchfield" id="searchbox" name="q" type="text" placeholder="Search">
+	  <div>
+      	<input class="searchfield" id="searchbox" name="q" type="text" placeholder="Some Recipe">
+      </div>
+      <div>
+      	<center>
+          <button class="w3-button w3-light-grey w3-padding-large w3-margin-top" type="submit">Search
+            <i class="fa fa-search"></i>
+          </button>
+      	</center>
+      </div>
     </form>
+  </div>
+</div>
+
+</body>
+</html>
