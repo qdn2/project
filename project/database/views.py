@@ -60,30 +60,6 @@ def results_restaurants(request):
 		word=food_type.split(",")
 		rr_link='http://127.0.0.1:8000/database/results_recipes?q='+ 'special' + word[0]
 
-
-
-
-
-		####
-		##rr_list=None
-		##list_of_cuisines=food_type.split(",")
-		##for item in list_of_cuisines:
-		##	if(Recipe.objects.filter(food_type__icontains= query)):
-		##		rr_list=Recipe.objects.filter(food_type__icontains= query)
-		##		break
-		##if(not(rr_list)):
-		##	random_recipes=Recipe.objects.all()
-		##	upper_bound=len(random_recipes)
-		##	number_lis=range(upper_bound)
-		##	number=random.sample(number,5)
-
-		##	counter=0
-		##	for i in number:
-		##		if(counter == 5):
-		##			break
-		##		rr_list.append(random_recipes[i])
-		##		counter+=1
-		####		
 	
 
 	elif(Z_Restaurant.objects.filter(food_type__icontains= query)):
@@ -145,7 +121,50 @@ def results_recipes(request):
 	resultlis=[]
 
 
-	if(exact_name):
+
+	if(query.find('special') == 0):
+		query=query.replace("special","")
+		####
+		rr_list=None
+		if(Recipe.objects.filter(food_type__icontains= query)):
+			
+			results=Recipe.objects.filter(food_type__icontains= query)
+			
+			for some_object in results:
+				name=some_object.r_name.replace(" ", "+") 
+				name=name.replace("&", "%26")
+				link='http://127.0.0.1:8000/database/results_recipes?q=' + name
+				info= {'image':some_object.r_image,'name':some_object.r_name,'food_type':some_object.food_type, 'link':link}
+				resultlis.append(info)
+			
+			template_num=2
+
+		else:
+			rr_list=[]	
+			random_recipes=Recipe.objects.all()
+			upper_bound=len(random_recipes)
+			number_lis=range(upper_bound)
+			some_numbers=random.sample(number_lis,5)
+
+			counter=0
+			for i in some_numbers:
+				if(counter == 5):
+					break
+				rr_list.append(random_recipes[i])
+				counter+=1
+
+			for some_object in rr_list:
+				name=some_object.r_name.replace(" ", "+") 
+				name=name.replace("&", "%26")
+				link='http://127.0.0.1:8000/database/results_recipes?q=' + name
+				info= {'image':some_object.r_image,'name':some_object.r_name,'food_type':some_object.food_type, 'link':link}
+				resultlis.append(info)
+			
+			template_num=2	
+			
+
+
+	elif(exact_name):
 		r_name=exact_name[0].r_name
 		food_type=exact_name[0].food_type
 		r_ingredients=exact_name[0].r_ingredients
@@ -192,9 +211,6 @@ def results_recipes(request):
 			resultlis.append(info)
 		template_num=2	
 	
-
-
-
 
 
 	context = { 'r_name': r_name,'food_type': food_type,'r_ingredients':r_ingredients, 'r_time':r_time,"r_image":r_image,'r_rating':r_rating , 'template_num':template_num, 'resultlis':resultlis}

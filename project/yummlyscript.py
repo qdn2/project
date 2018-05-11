@@ -23,7 +23,7 @@ recipeName = []
 minutes = []
 rating = []
 ingredients = []
-cuisines = ["cuisine^cuisine-spanish","cuisine^cuisine-american", "cuisine^cuisine-italian", "cuisine^cuisine-mexican","cuisine^cuisine-thai",
+cuisines = ["cuisine^cuisine-american","cuisine^cuisine-american", "cuisine^cuisine-italian", "cuisine^cuisine-mexican","cuisine^cuisine-thai",
             "cuisine^cuisine-japanese", "cuisine^cuisine-indian", "cuisine^cuisine-greek", "cuisine^cuisine-hawaiin", "cuisine^cuisine-french",
             "cuisine^cuisine-german", "cuisine^cuisine-swedish", "cuisine^cuisine-barbecue", "cuisine^cuisine-irish", "cuisine^cuisine-mediterranean"]
 
@@ -38,11 +38,11 @@ for j in cuisines:
     matches = yummly['matches']        
     for recipe in yummly['matches']:
         
-        print(recipe['recipeName'])
+        #print(recipe['recipeName'])
         r_name=recipe['recipeName']
         
         print(recipe['attributes']['cuisine'][0])
-        food_type='spanish'
+        food_type='american'
         
         print(recipe['rating'])
         r_rating=str(recipe['rating'])
