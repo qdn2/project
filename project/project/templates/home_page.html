@@ -14,14 +14,10 @@ body, html {height: 100%}
     background-position: center;
     background-size: cover;
 }
-#searchbox
-{
-    height:50px;
-    width:600px;
-    font-size:14pt;
-}
+
 </style>
 <body>
+
 
 <div class="w3-top">
   <div class="w3-row w3-padding w3-black">
@@ -40,29 +36,22 @@ body, html {height: 100%}
   </div>
 </div>
 
+
 <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
   <div class="w3-display-middle">
-  	<div>
     	<center>
-        	<h1 class="w3-jumbo"><b><font color="white">Restaurant Search</font></b></h1>
+        	<h1 class="w3-jumbo"><b><font color="white">Happy Fooding!</font></b></h1>
         </center>
-    </div>
-    <div>
-    </div>
-    <form id="searchform" action="{% url 'results_restaurants' %}" method="get" accept-charset="utf-8">
-	  <div>
-      	<input class="searchfield" id="searchbox" name="q" type="text" placeholder="Some Recipe">
-      </div>
-      <div>
-      	<center>
-          <button class="w3-button w3-light-grey w3-padding-large w3-margin-top" type="submit">Search
-            <i class="fa fa-search"></i>
-          </button>
-      	</center>
-      </div>
-    </form>
   </div>
 </div>
 
+
+<div class="w3-container" id="about">
+  <div class="w3-content" style="max-width:700px">
+    <h2 class="w3-center w3-padding-64"><b>About The Project</b></h2>
+    <p>This project is designed to enable a user to search for a recipe or restaurant. A user can navigate to either search page depending on what they want to find. </p>
+
+  </div>
+</div>
 </body>
 </html>

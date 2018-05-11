@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import include,url
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
+from django.views.generic.base import TemplateView
 
 urlpatterns = [
+	url(r'home_page', TemplateView.as_view(template_name='home_page.html'), name='home_page'),
     url(r'^database/', include('database.urls')),
     url(r'^admin/', admin.site.urls),
 ]

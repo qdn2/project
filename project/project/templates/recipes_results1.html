@@ -65,7 +65,7 @@ button{
     <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
       <div class="w3-display-middle">
             <center>
-                <h2 class="w3-jumbo"><b><font color="white">No Restaurants Found Search Again</font></b></h2>
+                <h2 class="w3-jumbo"><b><font color="white">No Recipes Found Search Again</font></b></h2>
             </center>
       </div>
     </div>
@@ -81,38 +81,25 @@ button{
                 <br/>
                 <font size=4><b> Cuisine: {{food_type}}</b></font>
                 <br/>
-                <br/>
-                <font size=4><b>Located in the City of {{r_city}}</b></font>
-                <br/>
-                <font size=4><b>{{r_address}}</b></font>
+                <font size=4><b>Ingredients</b>: {{r_ingredients}}</font>
                 <br/>
                 <br/>
-                <font size=4><a href={{r_menu}}><b>Click to see Menu on Zomato</b></a></font>
+                <font size=4><b>Time for Cooking (minutes)</b> {{r_time}} </font>
                 <br/>
-                <font size=4><b>Average cost for two: ${{r_cost}}</b></font>
-                <br/>
-                <font size=4><b>Rating According to Zomato: {{r_rating}} stars</b></font>
+                <font size=4><b>Rating According to Yummly</b>: {{r_rating}}</font>
                 <br/>
             </center>
             
 
       </div>
     </div>
-
-
-    <div class="w3-display-bottom">
-           <center>
-                <h2 ><a href={{rr_link}}><font color="black">Click Here for Recipe Recommendations</font></a></h2>
-            </center>
-    </div>
-
 {% endif %}
 
 {% if template_num == 2 %}
     <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
       <div class="w3-display-middle">
             <center>
-                <h2 class="w3-jumbo"><b><font color="white">Restaurant Results</font></b></h2>
+                <h2 class="w3-jumbo"><b><font color="white">Recipe Results</font></b></h2>
             </center>
       </div>
     </div>
@@ -135,7 +122,7 @@ button{
            
                     <img style= 'height:75px; width:100px' src={{item.image}} >
                     <font style="font-size:1.5vw" color="black" size=10>
-                    {{item.name}} located in {{item.city}}
+                    {{item.name}} , cusine type is {{item.food_type}}
                     </font>
               
                   </button>

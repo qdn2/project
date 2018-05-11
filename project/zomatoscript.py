@@ -25,7 +25,7 @@ def get_images(search_type):
             image_url= i['thumbnail']['thumbnailUrl']
             break
     except: 
-        image_url= 'http://hdriblog.com/wp-content/themes/gridview/img/no-image.png'
+        image_url= 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png'
         
     return image_url
 

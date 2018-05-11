@@ -16,4 +16,12 @@ class Z_Restaurant(models.Model):
    r_image=models.CharField(max_length = 200, null= True)
    r_rating=models.CharField(max_length = 200, null= True)
 
+class Recipe(models.Model):
+	r_name= models.CharField(max_length= 200, null= True)
+	food_type= models.CharField(max_length = 200, null= True)
+	r_ingredients=models.CharField(max_length = 1024, null= True)
+	r_time=models.CharField(max_length = 200, null= True)
+	r_image=models.CharField(max_length = 200, null= True)
+	r_rating=models.CharField(max_length = 200, null= True) 	
+
 
