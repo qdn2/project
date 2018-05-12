@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<title>Recipe Results</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<style>
+body, html {
+    height: 100%;
+    font-family: "Raleway", sans-serif;
+}
+#resultslist {
+	font-family: "Times New Roman", Times, serif;
+}
+
+.bgimg {
+    background-position: center;
+    background-size: cover;
+    background-image: url("https://www.pirenko.com/fount-restaurant/wp-content/uploads/sites/19/2014/12/food-dark.jpg");
+    min-height: 80%;
+}
+.menu {
+    display: none;
+}
+
+img {
+    border: 1px solid #ddd; /* Gray border */
+    border-radius: 4px;  /* Rounded border */
+    padding: 5px; /* Some padding */
+    width: 150px; /* Set a small width */
+}
+
+button:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+button{
+	width:1000px;
+
+}
+
+</style>
+<body>
+
+
+<div class="w3-top">
+  <div class="w3-row w3-padding w3-black">
+    <div class="w3-col s3">
+      <a href="http://127.0.0.1:8000/home_page" class="w3-button w3-block w3-black">HOME</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="http://127.0.0.1:8000/home_page#about" class="w3-button w3-block w3-black">ABOUT</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="http://127.0.0.1:8000/database/search_recipes" class="w3-button w3-block w3-black">RECIPE SEARCH</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="http://127.0.0.1:8000/database/search_restaurants" class="w3-button w3-block w3-black">RESTAURANT SEARCH</a>
+    </div>
+  </div>
+</div>
+
+
+{% if template_num == 0 %}
+    <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+      <div class="w3-display-middle">
+            <center>
+                <h2 class="w3-jumbo"><b><font color="white">No Recipes Found Search Again</font></b></h2>
+            </center>
+      </div>
+    </div>
+{% endif %}
+
+{% if template_num == 1 %}
+    <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+      <div class="w3-display-middle">
+            <center>
+                <h2><b><font color="white">{{r_name}}</font></b></h2>
+                <img style="width:35%" src={{r_image}}>
+                <br/>
+                <br/>
+                <font size=4><b> Cuisine: {{food_type}}</b></font>
+                <br/>
+                <font size=4><b>Ingredients</b>: {{r_ingredients}}</font>
+                <br/>
+                <br/>
+                <font size=4><b>Time for Cooking (minutes)</b> {{r_time}} </font>
+                <br/>
+                <font size=4><b>Rating According to Yummly</b>: {{r_rating}}</font>
+                <br/>
+            </center>
+            
+
+      </div>
+    </div>
+{% endif %}
+
+{% if template_num == 2 %}
+    <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+      <div class="w3-display-middle">
+            <center>
+                <h2 class="w3-jumbo"><b><font color="white">Recipe Results</font></b></h2>
+            </center>
+      </div>
+    </div>
+
+
+    <div class="w3-container" id="resultslist">
+            
+       <ul style="list-style: none;">     
+       <center>
+       <table>
+
+
+
+            {% for item in resultlis %}
+            <tr>
+                <td>
+                  <a target="_blank" href={{item.link}}>
+                  <li>
+                  <button style="text-align:left">
+           
+                    <img style= 'height:75px; width:100px' src={{item.image}} >
+                    <font style="font-size:1.5vw" color="black" size=10>
+                    {{item.name}} , cusine type is {{item.food_type}}
+                    </font>
+              
+                  </button>
+                  </li>
+                  </a>
+                  <hr/>
+                </td>
+            </tr>
+            {% endfor %}
+
+
+
+
+        </table>
+        </center>
+        </ul>
+    </div>
+{% endif %}
+
+
+
+
+<div class="w3-sand w3-grayscale w3-large">
+
+
+
+</body>
+</html>

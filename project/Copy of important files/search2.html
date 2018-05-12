@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>Search Restaurants</title>
+<title>Search Recipes</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -41,21 +41,17 @@ body, html {height: 100%}
 </div>
 
 <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
-
   <div class="w3-display-middle">
-  	
-    <div>
+  	<div>
     	<center>
-        	<h1 class="w3-jumbo"><b><font color="white">Restaurant Search</font></b></h1>
+        	<h1 class="w3-jumbo"><b><font color="white">Recipe Search</font></b></h1>
         </center>
     </div>
-    
     <div>
     </div>
-    
-    <form id="searchform" action="{% url 'results_restaurants' %}" method="get" accept-charset="utf-8">
+    <form id="searchform" action="{% url 'results_recipes' %}" method="get" accept-charset="utf-8">
 	  <div>
-      	<input class="searchfield" id="searchbox" name="q" type="text" placeholder="Search for Restaurants">
+      	<input class="searchfield" id="searchbox" name="q" type="text" placeholder="Search for Some Recipe">
       </div>
       <div>
       	<center>
@@ -65,9 +61,7 @@ body, html {height: 100%}
       	</center>
       </div>
     </form>
-  
   </div>
-
 </div>
 
 </body>
